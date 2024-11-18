@@ -2,12 +2,12 @@
 
 namespace SilverCommerce\CatalogueFrontend\Control;
 
-use SilverStripe\Core\ClassInfo;
+use SilverCommerce\CatalogueAdmin\Model\CatalogueCategory;
+use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\CMS\Controllers\ModelAsController as CMSModelAsController;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\CMS\Controllers\ModelAsController as CMSModelAsController;
-use SilverCommerce\CatalogueAdmin\Model\CatalogueCategory;
 
 /**
  * Customise default @link ModelAsController to allow for finding and setting
@@ -39,7 +39,7 @@ class ModelAsController extends CMSModelAsController
      * @return ContentController
      * @throws Exception If URLSegment not passed in as a request parameter.
      */
-    public function getNestedController()
+    public function getNestedController(): ContentController
     {
         $request = $this->getRequest();
 
@@ -56,7 +56,7 @@ class ModelAsController extends CMSModelAsController
         $sitetree_conditions = ["URLSegment" => rawurlencode($URLSegment)];
         $cat_conditions = $sitetree_conditions;
         $product_conditions = $sitetree_conditions;
-        
+
         if (SiteTree::config()->get('nested_urls')) {
             $sitetree_conditions['ParentID'] = 0;
         }
