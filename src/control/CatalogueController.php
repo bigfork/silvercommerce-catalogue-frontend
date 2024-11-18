@@ -159,7 +159,7 @@ class CatalogueController extends ContentController
             );
         }
 
-        $generator = trim(Config::inst()->get(self::class, 'meta_generator'));
+        $generator = trim(Config::inst()->get(self::class, 'meta_generator') ?? '');
         if (!empty($generator)) {
             $tags[] = HTML::createTag(
                 'meta',
