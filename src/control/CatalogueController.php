@@ -46,7 +46,7 @@ class CatalogueController extends ContentController
 
         return $filter;
     }
-    
+
     /**
      * Get a paginated list of products contained in this category
      *
@@ -102,7 +102,7 @@ class CatalogueController extends ContentController
             $dataRecord->URLSegment = get_class($this);
             $dataRecord->ID = -1;
         }
-        
+
         parent::__construct($dataRecord);
     }
 
@@ -133,7 +133,7 @@ class CatalogueController extends ContentController
     public function ProductImage()
     {
         $image = $this->SortedImages()->first();
-            
+
         $this->extend("updateProductImage", $image);
 
         return $image;
@@ -223,7 +223,7 @@ class CatalogueController extends ContentController
      * @return HTTPResponse
      * @throws HTTPResponse_Exception
      */
-    public function handleRequest(HTTPRequest $request)
+    public function handleRequest(HTTPRequest $request): HTTPResponse
     {
         /**
          * @var SiteTree $child
@@ -338,7 +338,7 @@ class CatalogueController extends ContentController
 
         return SSViewer::create($templates);
     }
-    
+
     /**
      * Returns a fixed navigation menu of the given level.
      *
