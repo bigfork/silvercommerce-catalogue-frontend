@@ -22,13 +22,27 @@
         "issues": "http://github.com/silvercommerce/catalogue-frontend/issues"
     },
     "require": {
-        "silverstripe/framework": "~4.0",
-        "silverstripe/cms": "~4.0",
-        "silverstripe/assets": "~1.0",
-        "silvercommerce/catalogue-admin": "~1.0",
-        "silvercommerce/settings": "~1.0",
-        "silvercommerce/quantityfield": "~1.0"
+        "silverstripe/framework": "^5",
+        "silverstripe/cms": "^5",
+        "silverstripe/assets": "^2",
+        "silvercommerce/catalogue-admin": "dev-ss5",
+        "silvercommerce/settings": "dev-ss5",
+        "silvercommerce/quantityfield": "dev-ss5"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bigfork/silvercommerce-catalogue-admin"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bigfork/silvercommerce-settings"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bigfork/silvercommerce-quantityfield"
+        }
+    ],
     "suggest": {
         "i-lateral/silverstripe-users": "Add user account management, login and registration",
         "wilr/silverstripe-googlesitemaps": "SilverStripe support for the Google Sitemaps XML"
